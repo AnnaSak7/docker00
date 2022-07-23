@@ -48,3 +48,9 @@
 ## to get the mysql data on the container from the local pc
 
 - install 'pip install mysql-connector-python'
+
+21. 'docker rm kai-mysql' to delete the container
+
+22. 'docker rmi mysql:latest' to delete the pulled container image
+
+23. 'docker images' to check there images there is
