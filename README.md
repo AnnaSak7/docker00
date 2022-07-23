@@ -14,7 +14,7 @@
 
 7. 'docker ps' to check which container is running
 
-### container image is just to create a container so it is possible to multiple containers from the same image
+### container image is just to create a container so it is possible to create multiple containers from the same image
 
 8. '(bash-4.4#) docker exec -it kai-mysql bash' to get inside the container \*'-it' option allows you to operate the command operation of container as it is from this database that you are currently using
 
