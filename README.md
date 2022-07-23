@@ -2,7 +2,7 @@
 
 2. 'docker --version'
 
-   - check the docker is installed\
+   - check the docker is installed
 
 3. go to hub.docker.com to find mysql image
 
@@ -45,7 +45,7 @@
 
 20. 'docker start kai-mysql' to restart the once-stopped container
 
-## to get the mysql data on the container from the local pc
+### to get the mysql data on the container from the local pc
 
 - install 'pip install mysql-connector-python'
 
@@ -54,3 +54,41 @@
 22. 'docker rmi mysql:latest' to delete the pulled container image
 
 23. 'docker images' to check there images there is
+
+## Create images from Docker file to run a container
+
+In terminal, cd into the folder where the Dockerfile is then 'docker build -t kai-python:1.0 .' to create container image from Dockerfile (-t to set the container image tag)(-f to set the dockerfile path. if you are already in the folder where the Dockerfile is then you can skip -f option)(. at the end means the current directory)
+
+things to consider:
+
+- move to the directory where Docker file exists
+- check if there are any unnecessary files
+- when running docker build, set current directory(= '.') at the end
+
+### once container is created,
+
+- 'docker run --name kai-server -it -d kai-python:01'
+- 'docker exec -it kai-server bash' to go inside the container
+  in bash
+- pwd to check where in the folder you are at
+- 'echo $SITE_DOMAIN' to see the domain you set up
+- 'ls' : you can check that there's the data you brought from web
+- 'head -10 iris.data'
+- 'cd .. ' 'ls' : you can check that there's requirements.txt there
+- 'python 3.9' : you can run python
+- 'import numpy as np' : if there's no error then dependencies are successfully installed
+- 'exit()' : to exit from python
+- ctrl + d : to exit container
+- 'docker stop kai-server' : to stop the container
+
+## using ENTRYPOINT
+
+- create script.py
+- in script.py ( print('Python script is running') )
+- in Dockerfile
+  COPY script.py .
+  ENTRYPOINT ['python3.9', 'script.py']
+- 'docker build -t kai-python:1.1 .' (create a docker image kai-python:1.1)
+- 'docker images' : to check if it is really created
+- 'docker run --name kai-server-2 kai-python:1.1'
+- you'll get 'Python script is running' in the console

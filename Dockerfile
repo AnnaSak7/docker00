@@ -4,7 +4,8 @@ USER root
 
 
 RUN apt update
-RUN apt install -y python3.9 python3-pip
+RUN apt install -y python3.9
+RUN apt install -y python3-pip
 
 # copying the file on local pc to the container
 # COPY local-file-path container-path
@@ -27,6 +28,10 @@ ADD https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data .
 
 # ENTRYPOINT: コンテナ実行(docker run)時に動かしたいシェルコマンドを指定
 # ENTRYPOINT:　["file", "param 1", "param 2"]
+COPY script.py .
+ENTRYPOINT ["python3.9", "script.py"]
+
+
 
 # RUN:　コンテナイメージ作成時に実行
 # ENTRYPOINT:　コンテナ実行時(docker run)に実行
