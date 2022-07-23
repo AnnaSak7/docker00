@@ -44,3 +44,7 @@
 19. 'docker ps -a' -> you can see the containers that are stopped too
 
 20. 'docker start kai-mysql' to restart the once-stopped container
+
+## to get the mysql data on the container from the local pc
+
+- install 'pip install mysql-connector-python'
